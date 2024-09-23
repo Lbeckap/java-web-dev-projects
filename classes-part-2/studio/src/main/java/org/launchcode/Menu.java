@@ -1,7 +1,9 @@
 package org.launchcode;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 public class Menu {
     private Date lastUpdated;
@@ -28,7 +30,11 @@ public class Menu {
         return items;
     }
     public void addItem(MenuItem item) {
-        items.add(item);
+        if (!items.contains(item)){
+            items.add(item);
+        } else {
+            System.out.println("Unable to add " + item.getDescription() + ". " + "This item already exists.");
+        }
     }
 
     public void deleteItem(MenuItem item) {
@@ -41,6 +47,10 @@ public class Menu {
             System.out.println(item);
         }
         System.out.println("-----------------");
+    }
+
+    public void printItem(MenuItem item) {
+        System.out.println(item);
     }
 }
 
